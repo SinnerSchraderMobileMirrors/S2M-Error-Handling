@@ -106,7 +106,6 @@ static CrashAlertController *crashAlertController = nil;
         [self showCrashOnJSONErrorAlert];
         self.handled = YES;
     }
-    [super handleErrorWithAlertViewDelegate:delegate alertViewTag:0];
 }
 
 -(void)showCrashOnJSONErrorAlert {
