@@ -103,9 +103,9 @@ NSString * const kS2MErrorNotification_key_message = @"S2MErrorNotification_key_
         static UIAlertView *alertView;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            NSString *title = S2M_ERROR_ALERT_TITLE;
-            NSString *message = S2M_ERROR_ALERT_MESSAGE;
-            NSString *button = S2M_ERROR_ALERT_CANCEL_BUTTON;
+            NSString *title = NSLocalizedStringFromTable(@"S2M_ERROR_ALERT_TITLE", @"S2M_error_handler",@"");
+            NSString *message = NSLocalizedStringFromTable(@"S2M_ERROR_ALERT_MESSAGE", @"S2M_error_handler",@"");
+            NSString *button = NSLocalizedStringFromTable(@"S2M_ERROR_ALERT_CANCEL_BUTTON", @"S2M_error_handler",@"");
             
             alertView = [[UIAlertView alloc] initWithTitle:title
                                          message:message

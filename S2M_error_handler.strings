@@ -1,0 +1,5 @@
+"S2M_ERROR_ALERT_TITLE" = "Interner Fehler";
+"S2M_ERROR_ALERT_MESSAGE" = "Beim Verarbeiten Ihrer Daten ist ein Fehler aufgetreten.";
+"S2M_ERROR_ALERT_CANCEL_BUTTON" = "OK";
+"S2M_SERVER_ERROR_TITLE" = "Server Error";
+"S2M_SERVER_ERROR_OK_BUTTON" = "OK";

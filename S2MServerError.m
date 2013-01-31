@@ -18,7 +18,7 @@
 }
 
 - (NSString*)alertTitle{
-    return S2M_SERVER_ERROR_TITLE;
+    return NSLocalizedStringFromTable(@"S2M_SERVER_ERROR_TITLE", @"S2M_error_handler",@"");
 }
 
 
@@ -79,7 +79,7 @@
 }
 
 + (NSString*)alertButtonOkTitle{
-    return S2M_SERVER_ERROR_OK_BUTTON;
+    return NSLocalizedStringFromTable(@"S2M_SERVER_ERROR_OK_BUTTON", @"S2M_error_handler",@"");
 }
 
 + (NSString*)offlineNotificationName{
