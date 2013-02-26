@@ -5,7 +5,7 @@
 //
 
 #import "S2MServerError.h"
-
+@synthesize operation = _operation;
 @implementation S2MServerError
 
 -(NSError*)underlyingError {
@@ -66,6 +66,22 @@
 +(S2MServerError*)serverErrorWithError:(NSError*)error
 								  code:(NSInteger)code
                               userInfo:(NSDictionary*)userInfo
+							 operation:(AFHTTPRequestOperation*)operation {
+    if (!userInfo) {
+        userInfo = [NSMutableDictionary dictionary];
+    } else if (![userInfo isKindOfClass:[NSMutableDictionary class]]) {
+        userInfo = [NSMutableDictionary dictionaryWithDictionary:userInfo];
+    }
+    [userInfo setValue:error forKey:NSUnderlyingErrorKey];
+    S2MServerError *serverError = [self errorWithDomain:kS2MErrorDomain_server code:code userInfo:userInfo];
+    serverError.operation = operation;
+    return serverError;
+}
+
+
++(S2MServerError*)serverErrorWithError:(NSError*)error
+								  code:(NSInteger)code
+                              userInfo:(NSDictionary*)userInfo
                                   data:(id)data {
     if (!userInfo) {
         userInfo = [NSMutableDictionary dictionary];
@@ -93,6 +109,7 @@
 
 -(void)dealloc {
     self.data = nil;
+    self.operation = nil;
     
     [super dealloc];
 }

@@ -9,7 +9,8 @@
 
 @interface S2MServerError : NSError
 
-@property (nonatomic, retain) id data;
+@property (nonatomic, retain) id data; // deprecated?
+@property (nonatomic, retain) AFHTTPRequestOperation *operation;
 
 - (NSError*)underlyingError;
 - (NSString*)errorMessage;
@@ -25,5 +26,10 @@
                                    code:(NSInteger)code
                                userInfo:(NSDictionary*)userInfo
                                    data:(id)data;
+
++(S2MServerError*)serverErrorWithError:(NSError*)error
+								  code:(NSInteger)code
+							  userInfo:(NSDictionary*)userInfo
+							 operation:(AFHTTPRequestOperation*)operation;
 
 @end
