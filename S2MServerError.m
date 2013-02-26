@@ -5,8 +5,10 @@
 //
 
 #import "S2MServerError.h"
-@synthesize operation = _operation;
+
 @implementation S2MServerError
+
+@synthesize operation = _operation;
 
 -(NSError*)underlyingError {
     return [self.userInfo objectForKey:NSUnderlyingErrorKey];
@@ -110,7 +112,7 @@
 -(void)dealloc {
     self.data = nil;
     self.operation = nil;
-    
+
     [super dealloc];
 }
 
