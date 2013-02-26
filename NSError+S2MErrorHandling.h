@@ -22,7 +22,7 @@ extern NSString * const kS2MErrorNotification_key_message;
 
 // Make sure errors can be received
 #define S2M_ASSURE_ERROR(error)                                              \
-    if (!(error)) (error) = alloca(sizeof(NSError*));                       \
+    if (!(error)) (error) = (NSError*__autoreleasing*)alloca(sizeof(NSError*));                       \
     *(error) = nil;
 
 #define S2M_LOG_SERVER_ERROR(serverError)                                    \
